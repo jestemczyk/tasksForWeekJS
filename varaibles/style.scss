@@ -1,0 +1,394 @@
+$gray: #353a3c;
+$black-gray: #141516;
+$white-gray: #626c71;
+$wheat: #a8b7be;
+$white: #fff;
+$blue-gray: rgb(33, 40, 49);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: inter;
+}
+
+body {
+  background-color: $blue-gray;
+}
+
+.container {
+  max-width: 70%;
+  margin: auto;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  background-color: $black-gray;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+}
+
+.header-wrap {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    color: $white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 800;
+
+    span {
+      color: $white-gray;
+      font-size: 27px;
+    }
+  }
+
+  .clear-all {
+    width: 120px;
+    height: 35px;
+    font-weight: 600;
+    background-color: $black-gray;
+    border: 1px solid $white-gray;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    color: $wheat;
+
+    &:hover {
+      background-color: $blue-gray;
+    }
+
+    &:active {
+      transition: none;
+      background-color: $gray;
+    }
+  }
+}
+
+.main-wrap {
+  margin-top: 120px;
+}
+
+.day {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+  border: 3px dashed $white-gray;
+  padding: 15px;
+
+  h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: $wheat;
+  }
+
+  .add {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    background: none;
+    color: $white;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $gray;
+    }
+
+    &:active {
+      transition: none;
+      background: none;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.task {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $wheat;
+  border: 2px solid $white-gray;
+}
+
+.time {
+  width: 15%;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 700;
+  width: 25%;
+  margin-right: 40px;
+}
+
+.description {
+  width: 50%;
+  margin-right: 10px;
+}
+
+.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  color: white;
+  font-weight: 800;
+  border: none;
+  width: 30px;
+  height: 30px;
+  transition: background-color 0.2s;
+  border-radius: 50px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  &:active {
+    transition: none;
+    background: none;
+  }
+}
+
+.hide{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.add-popup-overflow{
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 80px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.632);
+  transition: 0.2s;
+}
+.add-popup{
+  position: relative;
+  background-color: $blue-gray;
+  width: 60%;
+  height: 520px;
+  margin: 70px auto;
+  border: 3px solid $white-gray;
+
+  h1{
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 35px;
+    font-weight: 700;
+    color: $wheat;
+  }
+
+  p{
+    color: $wheat;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+}
+
+.close-popup{
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 45px;
+  height: 38px;
+  background-color: $white-gray;
+  color: $black-gray;
+  font-weight: 800;
+  font-size: 18px;
+  border: none;
+  transition: background-color 0.2s;
+
+  &:hover{
+    background-color: rgb(182, 21, 21);
+  }
+
+  &:active{
+    transition: none;
+    background-color:  rgb(138, 36, 36);
+  }
+}
+
+.add-popup-wrapper{
+  width: 95%;
+  margin: 35px auto;
+}
+
+.choose-time{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+
+  p{
+    margin: 0;
+  }
+
+  select{
+    width: 45px;
+    height: 30px;
+    padding-left: 5px;
+    color: $wheat;
+    background-color: $blue-gray;
+    border: 1px solid $wheat;
+
+    &:active{
+      background-color: $gray;
+    }
+
+    option{
+      font-family: inter;
+      font-size: 15px;
+    }
+  }
+}
+
+#task-title{
+  color: $wheat;
+  background-color: $blue-gray;
+  width: 250px;
+  height: 40px;
+  border: 1px solid $wheat;
+  font-size: 17px;
+  margin-bottom: 15px;
+  padding: 10px;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+#task-description{
+  display: flex;
+  width: 90%;
+  max-width: 90%;
+  min-width: 90%;
+  height: 150px;
+  max-height: 150px;
+  min-height: 150px;
+  background-color: $blue-gray;
+  color: $wheat;
+  border: 1px solid $wheat;
+  padding: 7px;
+  margin-bottom: 20px;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+.confirm-button{
+  width: 80px;
+  height: 35px;
+  background-color: $wheat;
+  color: $blue-gray;
+  border: 1px solid $wheat;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover{
+    background-color: $blue-gray;
+    color: $wheat;
+  }
+
+  &:active{
+    transition: none;
+    background-color: $gray;
+  }
+}
+
+
+@media (max-width: 1430px) {
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    position: relative;
+  }
+
+  .time {
+    width: 100%;
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-wrap {
+    .clear-all:hover {
+      background-color: $black-gray;
+    }
+
+    .clear-all:active{
+        background-color: $blue-gray;
+    }
+  }
+
+  .delete:hover{
+   background-color: $blue-gray; 
+  }
+
+  .delete:active{
+    background-color: $gray;
+  }
+
+  .day{
+    .add:hover{
+        background-color: $blue-gray;
+    }
+    .add:active{
+        background-color: $gray;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    max-width: 90%;
+  }
+
+  
+  .add-popup{
+
+    width: 90%;
+  }
+  
+  #task-description{
+    width: 97%;
+    max-width: 97%;
+    min-width: 97%;
+  }
+}
+
