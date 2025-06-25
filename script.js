@@ -172,4 +172,5 @@ addForm.addEventListener("submit", (submit) => {
   taskTitle.value = "";
   taskDescription.value = "";
   formPopup.classList.add("hide");
+   document.body.style.overflow = "";
 });
